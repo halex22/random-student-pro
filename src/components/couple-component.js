@@ -2,6 +2,8 @@ import { studentCard } from "./student-card";
 
 export function coupleComponent(coupleInfo) {
 
+  console.log('build info for' , coupleInfo[0], coupleInfo[1])
+
   const coupleContainer = document.createElement('div')
   coupleContainer.classList.add('couple-container')
 
@@ -10,7 +12,7 @@ export function coupleComponent(coupleInfo) {
   const container = document.createElement('div')
   container.classList.add('members')
 
-  coupleInfo.members.forEach(member => {
+  coupleInfo.forEach(member => {
     container.innerText += studentCard(member)
   });
 
