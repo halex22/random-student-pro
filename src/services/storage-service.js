@@ -1,5 +1,6 @@
 class StorageService {
   static #storageKey = "studentsData";
+  static #editKey = 'toEdit'
   static instance;
   constructor() {
     if (StorageService.instance) return StorageService.instance;
@@ -12,6 +13,14 @@ class StorageService {
 
   loadData() {
     return JSON.parse(localStorage.getItem(StorageService.#storageKey));
+  }
+
+  saveStudentToEdit(student) {
+    localStorage.setItem(StorageService.#editKey, JSON.stringify(student))
+  }
+
+  loadStudentToEdit() {
+    return localStorage.getItem(StorageService.#editKey)
   }
 }
 

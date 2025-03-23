@@ -52,8 +52,12 @@ class StudentService {
 
   }
 
-  static #extractCouple() {
+  removeStudent(studentToReplace) {
+    // this.students.filter(student => student !== studentToReplace)
+  }
 
+  addStudent(studentToAdd) {
+    this.students.push(studentToAdd)
   }
 
 

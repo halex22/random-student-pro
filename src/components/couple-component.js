@@ -2,28 +2,26 @@ import { studentCard } from "./student-card";
 
 export function coupleComponent(coupleInfo) {
 
-  console.log('build info for' , coupleInfo[0], coupleInfo[1])
 
   const coupleContainer = document.createElement('div')
   coupleContainer.classList.add('couple-container')
 
-  coupleContainer.innerHTML += status()
-
+  coupleContainer.appendChild(status()) 
   const container = document.createElement('div')
   container.classList.add('members')
 
   coupleInfo.forEach(member => {
-    container.innerText += studentCard(member)
+    container.appendChild(studentCard(member)) 
   });
+  coupleContainer.appendChild(container)
 
-  return container
+  return coupleContainer
 } 
 
 
 function status (){
-  return `
-  <div class="couple-status">
-    <p>couple status</p>
-  </div>
-  `
+  const div = document.createElement('div')
+  div.classList.add('couple-status')
+  div.innerHTML = '<p>couple status</p> '
+  return div
 }

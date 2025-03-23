@@ -1,12 +1,16 @@
 h1  {
   text-align: center;
 }
-main {
+
+.student-card span {
+  margin-right: 1rem;
+}
+/* main {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 80vh;
-}
+} */
 
 #form-wrapper {
   display: flex;
@@ -50,3 +54,30 @@ input, select {
   border-radius: 0.5rem;
   padding: 4px;
 }
+
+.members {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 1rem;
+}
+
+.couple-status {
+  text-align: center;
+}
+
+.student-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.edit-btn {
+  margin-top: 1rem;
+  background-color: black;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+
