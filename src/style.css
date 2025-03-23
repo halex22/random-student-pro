@@ -1,0 +1,52 @@
+h1  {
+  text-align: center;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+#form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+
+.input-label {
+  text-transform: capitalize;
+}
+
+.student-form {
+  border: 1px solid black;
+  padding: 1rem 3rem;
+  border-radius: 0.5rem;
+}
+
+.base-student-info {
+  display: flex;
+  gap: 2rem;
+}
+
+.input-container{
+  display: grid;
+  grid-template-columns: 1fr 1Fr;
+  margin-bottom: 1rem;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+
+}
+
+.save-btn {
+  margin-top: 1rem;
+  padding: 0.25rem 0.5rem;
+}
+
+input, select {
+  border-radius: 0.5rem;
+  padding: 4px;
+}
