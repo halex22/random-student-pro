@@ -1,9 +1,19 @@
 import { inputComponent } from "./input-component"
+import storageService from "../services/storage-service"
 
 export function formComponent (studentInfo){
-  return `
-  <div id="form-wrapper">
-  <form action="" class="student-form">
+  const age = new Date().getFullYear() - studentInfo?.yob 
+
+  const wrapperDiv = document.createElement('div')
+  wrapperDiv.id = 'form-wrapper'
+
+  const form = document.createElement('form')
+  form.id = "my-form"
+  form.classList.add('student-form')
+
+  form.innerHTML = 
+  `
+  
     <div class="base-student-info">
 
       ${inputComponent('name', studentInfo?.name ?? '')}
@@ -11,9 +21,9 @@ export function formComponent (studentInfo){
       ${inputComponent('surname', studentInfo?.surname ?? '')}
     </div>
       
-    ${inputComponent('age', studentInfo?.age ?? 18, 'number')}
+    ${inputComponent('age', age ?? 18, 'number')}
 
-    ${inputComponent('nationality', studentInfo?.surname ?? '')}
+    ${inputComponent('nationality', studentInfo?.nationality ?? '')}
 
 
     <div class="input-container">
@@ -28,8 +38,15 @@ export function formComponent (studentInfo){
     <div class="btn-container">
       <button class="save-btn">Save</button>
     </div>
-  </form>
-</div>
-  
   `
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault()
+    console.log('trying to save')
+  })
+  wrapperDiv.appendChild(form)
+
+  return wrapperDiv
 } 
+  
+

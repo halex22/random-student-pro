@@ -4,6 +4,7 @@ import { BasePage } from "./base"
 export class NewStudentPage extends BasePage {
 
   render() {
-    this.rootDiv.innerHTML = formComponent()
+    this.rootDiv.innerHTML = ''
+    this.rootDiv.appendChild(formComponent())  
   }
 }

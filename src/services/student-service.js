@@ -60,12 +60,17 @@ class StudentService {
     this.students.push(studentToAdd)
   }
 
+  editStudent(oldStudentInfo, newStudentInfo) {
+    console.log('modifying', oldStudentInfo)
+    console.log('now the student will be', newStudentInfo)
+  }
+
 
 }
 
 const studentService = new StudentService();
 const savedData = storageService.loadData();
-if (!!savedData.length) {
+if (savedData?.length) {
   studentService.students = savedData;
 } else {
   studentService.students = await studentService.fetchData();

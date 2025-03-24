@@ -5,7 +5,8 @@ import storageService from "../services/storage-service";
 
 export default class EditStudentPage extends BasePage {
   render() {
+    this.rootDiv.innerHTML = ''
     const studentToEdit = JSON.parse(storageService.loadStudentToEdit())
-    this.rootDiv.innerHTML = formComponent(studentToEdit)
+    this.rootDiv.appendChild(formComponent(studentToEdit))
   }
 }

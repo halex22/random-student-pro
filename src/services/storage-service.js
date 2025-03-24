@@ -22,6 +22,7 @@ class StorageService {
   loadStudentToEdit() {
     return localStorage.getItem(StorageService.#editKey)
   }
+
 }
 
 const storageService = new StorageService();
