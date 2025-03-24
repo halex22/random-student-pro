@@ -10,3 +10,4 @@ export default class EditStudentPage extends BasePage {
     this.rootDiv.appendChild(formComponent(studentToEdit))
   }
 }
+

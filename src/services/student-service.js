@@ -26,7 +26,7 @@ class StudentService {
     console.info('getting data from server')
     return fetch("./assets/students.json")
       .then((res) => res.json())
-      .then((data) => data);
+      .then((data) => data.map( (student, index) => {student.id = index; return student}));
   }
 
   lockCouple(students) {}
@@ -61,8 +61,15 @@ class StudentService {
   }
 
   editStudent(oldStudentInfo, newStudentInfo) {
+    newStudentInfo.id = oldStudentInfo.id
     console.log('modifying', oldStudentInfo)
-    console.log('now the student will be', newStudentInfo)
+
+
+    this.students.forEach(student => console.log(oldStudentInfo.id === student.id))
+    
+    
+    this.students = this.students.filter(student => student.id !== oldStudentInfo.id)
+    this.students.push(newStudentInfo)
   }
 
 
@@ -74,6 +81,7 @@ if (savedData?.length) {
   studentService.students = savedData;
 } else {
   studentService.students = await studentService.fetchData();
+  console.log(studentService.students)
   storageService.saveData(studentService.students)
 }
 

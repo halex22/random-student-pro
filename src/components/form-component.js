@@ -1,5 +1,7 @@
 import { inputComponent } from "./input-component"
 import storageService from "../services/storage-service"
+import studentService from "../services/student-service"
+import { renderEditForm } from "../main"
 
 export function formComponent (studentInfo){
   const age = new Date().getFullYear() - studentInfo?.yob 
@@ -21,7 +23,7 @@ export function formComponent (studentInfo){
       ${inputComponent('surname', studentInfo?.surname ?? '')}
     </div>
       
-    ${inputComponent('age', age ?? 18, 'number')}
+    ${inputComponent('yob', studentInfo?.yob ?? 2000 , 'number')}
 
     ${inputComponent('nationality', studentInfo?.nationality ?? '')}
 
@@ -42,8 +44,25 @@ export function formComponent (studentInfo){
 
   form.addEventListener('submit', (event) => {
     event.preventDefault()
-    console.log('trying to save')
+
+    const data = new FormData(event.target)    
+
+    const newInfo = {
+      name: data.get('name'),
+      surname: data.get('surname'),
+      yob: Number(data.get('yob')),
+      nationality: data.get('nationality'),
+      gender: data.get('gender'),
+    }
+    
+    // console.log('trying to save', newInfo)
+    studentService.editStudent(studentInfo, newInfo)
+    storageService.saveStudentToEdit(newInfo)
+    alert('student was saved')
+    renderEditForm()
   })
+
+
   wrapperDiv.appendChild(form)
 
   return wrapperDiv

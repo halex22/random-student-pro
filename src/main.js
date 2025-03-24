@@ -17,6 +17,10 @@ export function renderEditForm() {
   editPage.render()
 }
 
+export function reEditRender() {
+ editPage.render() 
+}
+
 homePage.render()
 
 
